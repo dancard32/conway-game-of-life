@@ -1,4 +1,5 @@
 import random
+from numba import njit
 
 from stillLives import genStills
 from oscillators import genOscillators
@@ -19,6 +20,7 @@ def genPattern(dat, i, j):
 
     return dat
 
+@njit
 def gol(vals):
     Nx = vals.shape[0] - 1; Ny = vals.shape[1]-1
     new_vals = 0*vals.copy()
